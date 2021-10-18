@@ -12,12 +12,14 @@ namespace STLL
         using value_type = T;
 
         SimpleAllocator() = default;
-
+        
+        
         template <typename U>
         SimpleAllocator(const SimpleAllocator<U> &other) noexcept
         { 
             (void) other; 
         }
+        
         
         T* allocate(size_t size)
         {
@@ -32,6 +34,16 @@ namespace STLL
             (void) size;
             free(ptr);
             ptr = nullptr;
+        }
+
+        bool operator==(const SimpleAllocator<T> &)
+        { 
+            return true; 
+        }
+
+        bool operator!=(const SimpleAllocator<T> &)
+        { 
+            return false; 
         }
 
     };
