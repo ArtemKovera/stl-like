@@ -36,12 +36,14 @@ namespace STLL
             ptr = nullptr;
         }
 
-        bool operator==(const SimpleAllocator<T> &)
+        template <typename U>
+        bool operator==(const SimpleAllocator<U> &)
         { 
             return true; 
         }
 
-        bool operator!=(const SimpleAllocator<T> &)
+        template <typename U>
+        bool operator!=(const SimpleAllocator<U> &)
         { 
             return false; 
         }
